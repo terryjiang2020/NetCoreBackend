@@ -55,5 +55,30 @@ namespace WebAPI.Controllers
 
             return BadRequest(result.Message);
         }
+
+        [HttpGet("github-authorize")]
+        public ActionResult GetGitHubAuthorizationUrl(string state = null)
+        {
+            var authorizationUrl = _authService.GetGitHubAuthorizationUrl(state);
+            return Ok(new { url = authorizationUrl });
+        }
+
+        [HttpPost("github-login")]
+        public ActionResult GitHubLogin(UserForGitHubLoginDto userForGitHubLoginDto)
+        {
+            var userToLogin = _authService.GitHubLogin(userForGitHubLoginDto);
+            if (!userToLogin.Success)
+            {
+                return BadRequest(userToLogin.Message);
+            }
+
+            var result = _authService.CreateAccessToken(userToLogin.Data);
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return BadRequest(result.Message);
+        }
     }
 }

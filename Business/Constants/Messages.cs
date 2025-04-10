@@ -16,5 +16,7 @@
         public static string AuthorizationDenied = "Yetkiniz yok";
         public static string ProductNameAlreadyExists = "Ürün ismi zaten mevcut";
 
+        public static string GitHubUserRegistered = "GitHub kullanıcı başarıyla kaydedildi";
+        public static string GitHubLoginFailed = "GitHub girişi başarısız oldu";
     }
 }
