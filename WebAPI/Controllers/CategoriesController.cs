@@ -21,7 +21,6 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        
         public IActionResult GetList()
         {
             var result = _categoryService.GetList();
