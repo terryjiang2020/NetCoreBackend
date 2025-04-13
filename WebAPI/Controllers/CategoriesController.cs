@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -21,6 +21,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
+        
         public IActionResult GetList()
         {
             var result = _categoryService.GetList();
