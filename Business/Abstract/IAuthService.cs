@@ -14,5 +14,7 @@ namespace Business.Abstract
         IDataResult<User> Login(UserForLoginDto userForLoginDto);
         IResult UserExists(string email);
         IDataResult<AccessToken> CreateAccessToken(User user);
+        string GetGitHubAuthorizationUrl(string state = null);
+        IDataResult<User> GitHubLogin(UserForGitHubLoginDto userForGitHubLoginDto);
     }
 }
